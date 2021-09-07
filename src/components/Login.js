@@ -6,13 +6,19 @@ import {auth} from './Firebase';
 import firebase from 'firebase/app';
 
 const Login = () => {
+
+    const myFunction = ()=>{
+        auth.signInWithRedirect( new firebase.auth.GoogleAuthProvider());
+        console.log("google")
+    }
+
     return(
         <div id='login-page' >
             <div id='login-card' >
                 <h2> Welcome to Unicat! </h2>
 
                 <div className='login-button google' 
-                onClick={ ()=> auth.signInWithRedirect( new firebase.auth.GoogleAuthProvider())}
+                onClick={()=> myFunction()}
                 > 
                 <GoogleOutlined />Sign In With Google
                 </div>
@@ -22,7 +28,7 @@ const Login = () => {
                 <div className='login-button facebook'
                  onClick={ ()=> auth.signInWithRedirect( new firebase.auth.FacebookAuthProvider())}
                 > 
-                <facebook />Sign In With facebook
+                <FacebookOutlined />Sign In With facebook
                 </div>
 
             </div>
